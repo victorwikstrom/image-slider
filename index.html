@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="main.js"></script>
+  <script defer src="main.js"></script>
   <title>Slider</title>
 </head>
 <body>
-  <div class='slider-container'>
-    <img class='show img' src="./imgs/image-1.jpg" alt="">
+  <div id='container' class='slider-container'>
+    <button id='previous-button' class='arrow-button left'> Previous image </button>
+    <button id='next-button' class='arrow-button right'> Next image </button>
+    <img class='img show' src="./imgs/image-1.jpg" alt="">
     <img class='img' src="./imgs/image-2.jpg" alt="">
     <img class='img' src="./imgs/image-3.jpg" alt="">
     <img class='img' src="./imgs/image-4.jpg" alt="">
