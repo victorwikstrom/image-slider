@@ -1,5 +1,8 @@
 window.addEventListener('load', () => initSlider())
 
+/**
+ * Initiate the slider and add event listeners to next/prev-buttons
+ */
 const initSlider = () => {
   const slideList = getSlides('slide') // Add classname for slide
   const indicators = getIndicators(slideList, 'indicator-container', 'indicator')
@@ -18,7 +21,7 @@ const initSlider = () => {
       nextSlide = 0
     }
     slideList[currentSlide].style.opacity = 0
-    indicators[currentSlide].style.opacity = 0.5
+    indicators[currentSlide].style.opacity = 0.3
     slideList[nextSlide].style.opacity = 1
     indicators[nextSlide].style.opacity = 1
     currentSlide = nextSlide
@@ -30,17 +33,27 @@ const initSlider = () => {
       prevSlide = slideList.length - 1
     }
     slideList[currentSlide].style.opacity = 0
-    indicators[currentSlide].style.opacity = 0.5
+    indicators[currentSlide].style.opacity = 0.3
     slideList[prevSlide].style.opacity = 1
     indicators[prevSlide].style.opacity = 1
     currentSlide = prevSlide
   })
 }
 
+/**
+ * Get all slides and returns array of slides
+ * @param {String} slidesId - ID of the slide element
+ */
 const getSlides = (slidesId) => {
   const slides = document.getElementsByClassName(slidesId)
   return slides
 }
+/**
+ * Creates all indicators (as div's) and returns as an array of indicators
+ * @param {Array} slides - Array of all slides
+ * @param {String} indicatorContainerId - Id of indicator container (parent of indicators)
+ * @param {String} indicatorClassName - CSS class name of indicator
+ */
 const getIndicators = (slides, indicatorContainerId, indicatorClassName) => {
   container = document.getElementById(indicatorContainerId)
   const indicators = []

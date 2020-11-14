@@ -7,8 +7,6 @@ body {
   height: 100%;
   width: 100vw;
 
-  overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +75,7 @@ h1 {
 .slider-btn:hover {
   text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.274);
   color: rgb(255, 255, 255);
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .next-btn {
@@ -108,7 +106,7 @@ h1 {
   
   border-radius: 50%;
   background-color: white;
-  opacity: 0.5;
+  opacity: 0.3;
   
   transition: all 700ms ease;
 }
