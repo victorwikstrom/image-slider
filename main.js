@@ -1,41 +1,41 @@
+window.addEventListener('load', () => initSlider())
 
-const images = document.querySelectorAll('.img')
-const container = document.getElementById('container')
-const nextButton = document.getElementById('next-button')
-const previousButton = document.getElementById('previous-button')
+const initSlider = () => {
+  const slideList = getSlides('slide') // Add classname of slide
+  let currentSlide = 0
+  slideList[currentSlide].style.opacity = 1
+  
+  nextButton = document.getElementById('next-btn')
+  prevButton = document.getElementById('prev-btn')
 
-nextButton.addEventListener('click', showNextImage)
-previousButton.addEventListener('click', showPreviousImage)
-
-function showPreviousImage() {
-  for (let i = 0; i < images.length; i++)
-  if (images[i].classList.contains('show')) {
-    images[i].classList.remove('show')
-
-    if (i === 0) {
-      lastIndex = images.length - 1
-      images[0].classList.remove('show')
-      images[lastIndex].classList.add('show')
-    } 
-    else {
-      nextIndex = i - 1
-      images[nextIndex].classList.add('show')
+  nextButton.addEventListener('click', showNextSlide = () => {
+    let nextSlide = currentSlide + 1 
+    if (currentSlide === slideList.length - 1) {
+      nextSlide = 0
     }
+    slideList[currentSlide].style.opacity = 0
+    slideList[nextSlide].style.opacity = 1
+    currentSlide = nextSlide
+  })
 
-    break
-  }
+  prevButton.addEventListener('click', showPrevSlide = () => {
+    let prevSlide = currentSlide - 1
+    if (currentSlide === 0) {
+      prevSlide = slideList.length - 1
+    }
+    slideList[currentSlide].style.opacity = 0
+    slideList[prevSlide].style.opacity = 1
+    currentSlide = prevSlide
+  })
 }
 
-function showNextImage() {
-  for (let i = 0; i < images.length; i++) {
-    if (images[i].classList.contains('show')) {
-      images[i].classList.remove('show')
-
-      nextIndex = (i + 1) % images.length
-      images[nextIndex].classList.add('show')
-
-      break
-    }
-
-  }
+const getSlides = (slidesId) => {
+  const slides = document.getElementsByClassName(slidesId)
+  return slides
 }
+
+
+
+
+
+
